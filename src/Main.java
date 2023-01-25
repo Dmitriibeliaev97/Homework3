@@ -52,20 +52,24 @@ public class Main {
         byte thirdTeacher = 30;
         short totalPaper = 480;
         int totalPupil = firstTeacher + secondTeacher + thirdTeacher;
-        System.out.println("На каждого ученика рассчитано " + totalPaper / totalPupil + " листов бумаги");
+        int paperForOnePupil = totalPaper / totalPupil;
+        System.out.println("На каждого ученика рассчитано " + paperForOnePupil + " листов бумаги");
     }
 
     public static void task4 () {
         System.out.println("Задача 4");
         byte inTwoMinutes = 16;
-        int inOneMinute = inTwoMinutes / 2;
-        System.out.println("За 20 минут машина произвела " + inOneMinute * 20 + " штук бутылок");
-        int oneDay = 60 * 60 * 24;
-        System.out.println("За 1 сутки машина произвела " + oneDay * inOneMinute + " штук бутылок");
+        byte minutes = 2;
+        int inOneMinute = inTwoMinutes / minutes;
+        int twelveMinute = inOneMinute * 20;
+        int oneHour = twelveMinute * 3;
+        int oneDay = oneHour * 24;
         int threeDays = oneDay * 3;
-        System.out.println("За 3 суток машина произвела " + threeDays * inOneMinute + " штук бутылок");
-        long oneMonth = oneDay * 30;
-        System.out.println("За 1 месяц машина произвела " + oneMonth * inOneMinute + " штук бутылок");
+        int oneMonth = threeDays * 10;
+        System.out.println("За 20 минут машина произвела " + twelveMinute + " штук бутылок");
+        System.out.println("За 1 сутки машина произвела " + oneDay + " штук бутылок");
+        System.out.println("За 3 суток машина произвела " + threeDays + " штук бутылок");
+        System.out.println("За 1 месяц машина произвела " + oneMonth + " штук бутылок");
 
     }
     public static void task5 () {
@@ -75,22 +79,24 @@ public class Main {
         byte oneClassBrown = 4;
         int totalInOneClass = oneClassWhite + oneClassBrown;
         int totalClasses = totalJar / totalInOneClass;
-        System.out.println("В школе, где " + totalClasses + " классов, нужно " + totalClasses * oneClassWhite + " банок белой краски и " + totalClasses * oneClassBrown + " банок коричневой краски");
+        int needWhite = totalClasses * oneClassWhite;
+        int needBrown = totalClasses * oneClassBrown;
+        System.out.println("В школе, где " + totalClasses + " классов, нужно " + needWhite + " банок белой краски и " + needBrown + " банок коричневой краски");
     }
 
     public static void task6 () {
         System.out.println("Задача 6");
+        byte bananas = 5;
+        byte milk = 2;
+        byte iceCream = 2;
+        byte eggs = 4;
+
         byte bananaWeight = 80;
         byte milkWeight = 105;
         byte iceCreamWeight = 100;
         byte eggWeight = 70;
 
-        int totalBananas = bananaWeight * 5;
-        int totalMilk = milkWeight * 2;
-        int totalIceCream = iceCreamWeight * 2;
-        int totalEggs = eggWeight * 4;
-
-        int totalWeightInGr = totalBananas + totalMilk + totalIceCream + totalEggs;
+        int totalWeightInGr = bananas * bananaWeight + milk * milkWeight + iceCream * iceCreamWeight + eggs * eggWeight;
         float totalWeightInKg = totalWeightInGr / 1000f;
         System.out.println("Общий вес завтрака " + totalWeightInGr + " грамм или " + totalWeightInKg + " килограмм");
     }
@@ -101,29 +107,37 @@ public class Main {
         int loseWeightInGr = loseWeight * 1000;
         short firstOption = 250;
         short secondOption = 500;
-        System.out.println("Если худеть по 250 грамм в день, чтобы похудеть на 7 килограмм потребуется " + loseWeightInGr / firstOption + " дней");
-        System.out.println("Если худеть по 500 грамм в день, чтобы похудеть на 7 килограмм потребуется " + loseWeightInGr / secondOption + " дней");
-        System.out.println("В среднем на похудение на 7 килограмм потребуется " + (loseWeightInGr / firstOption + loseWeightInGr / secondOption) / 2 + " дней");
+        double lose250PerDay = (double) loseWeightInGr / firstOption;
+        double lose500PerDay = (double) loseWeightInGr / secondOption;
+        double loseWeightPerDayMiddle = (double) (firstOption + secondOption) / 2;
+        double middleLose = (double) loseWeightInGr / loseWeightPerDayMiddle;
+        System.out.println("Если худеть по 250 грамм в день, чтобы похудеть на 7 килограмм потребуется " + lose250PerDay + " дней");
+        System.out.println("Если худеть по 500 грамм в день, чтобы похудеть на 7 килограмм потребуется " + lose500PerDay + " дней");
+        System.out.println("В среднем на похудение на 7 килограмм потребуется " + middleLose + " дней");
 
     }
 
     public static void task8 () {
         System.out.println("Задача 8");
-        float mashaPerMonth = 67760f;
-        float denisPerMonth = 83690f;
-        float kristinaPerMonth = 76230f;
+        int mashaPerMonth = 67760;
+        int denisPerMonth = 83690;
+        int kristinaPerMonth = 76230;
 
-        float mashaPerYear = mashaPerMonth * 12;
-        float denisPerYear = denisPerMonth * 12;
-        float kristinaPerYear = kristinaPerMonth * 12;
+        double indexPercent = 1.1;
 
-        float newMashaPerMonth = mashaPerMonth / 100 * 10 + mashaPerMonth;
-        float newDenisPerMonth = denisPerMonth / 100 * 10 + denisPerMonth;
-        float newKristinaPerMonth = kristinaPerMonth / 100 * 10 + kristinaPerMonth;
+        double mashaPerYear = mashaPerMonth * 12;
+        double denisPerYear = denisPerMonth * 12;
+        double kristinaPerYear = kristinaPerMonth * 12;
 
-        float newMashaPerYear = mashaPerYear / 100 * 10 + mashaPerYear;
-        float newDenisPerYear = denisPerYear / 100 * 10 + denisPerYear;
-        float newKristinaPerYear = kristinaPerYear / 100 * 10 + kristinaPerYear;
+        double newMashaPerMonth = mashaPerMonth * indexPercent;
+        double newDenisPerMonth = denisPerMonth * indexPercent;
+        double newKristinaPerMonth = kristinaPerMonth * indexPercent;
+
+        double newMashaPerYear = mashaPerYear * indexPercent;
+        double newDenisPerYear = denisPerYear * indexPercent;
+        double newKristinaPerYear = kristinaPerYear * indexPercent;
+
+
 
         System.out.println("Маша теперь получает " + newMashaPerMonth + " рублей в месяц. Годовой доход вырос на " + (newMashaPerYear - mashaPerYear) + " рублей");
         System.out.println("Денис теперь получает " + newDenisPerMonth + " рублей в месяц. Годовой доход вырос на " + (newDenisPerYear - denisPerYear) + " рублей");
