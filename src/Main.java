@@ -129,6 +129,7 @@ public class Main {
         System.out.println("Денис теперь получает " + newDenisPerMonth + " рублей в месяц. Годовой доход вырос на " + (newDenisPerYear - denisPerYear) + " рублей");
         System.out.println("Кристина теперь получает " + newKristinaPerMonth + " рублей в месяц. Годовой доход вырос на " + (newKristinaPerYear - kristinaPerYear) + " рублей");
 
+
     }
 
 
